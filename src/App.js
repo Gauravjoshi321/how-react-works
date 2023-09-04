@@ -63,13 +63,20 @@ function TabContent({ item }) {
   const [likes, setLikes] = useState(0);
 
   function handleInc() {
-    setLikes(likes + 1);
+    setLikes(likes => likes + 1);
+  }
+
+  function handleTriInc() {
+    setLikes(likes => likes + 1);
+    setLikes(likes => likes + 1);
+    setLikes(likes => likes + 1);
   }
 
   function handleUndo() {
     setShowDetails(true);
     setLikes(0);
   }
+
 
   return (
     <div className="tab-content">
@@ -84,7 +91,7 @@ function TabContent({ item }) {
         <div className="hearts-counter">
           <span>{likes} ❤️</span>
           <button onClick={handleInc}>+</button>
-          <button>+++</button>
+          <button onClick={handleTriInc}>+++</button>
         </div>
       </div>
 
